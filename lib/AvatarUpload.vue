@@ -696,7 +696,7 @@ const createImg = (e?: Event) => {
   ctx.fillRect(0, 0, props.width, props.height);
   ctx.drawImage(sourceImg.value, scale.value.x / sourceImgMasking.value.scale, scale.value.y / sourceImgMasking.value.scale, scale.value.width / sourceImgMasking.value.scale, scale.value.height / sourceImgMasking.value.scale);
 
-  createImgUrl.value = canvas.value.toDataURL(mime);
+  createImgUrl.value = canvas.value.toDataURL(mime.value);
 }
 
 const prepareUpload = () => {
@@ -718,7 +718,7 @@ const upload = () => {
     })
   }
 
-  fmData.append(props.field, data2blob(createImgUrl.value, mime), props.field + '.' + imgFormat);
+  fmData.append(props.field, data2blob(createImgUrl.value, mime.value), props.field + '.' + imgFormat.value);
 
   const uploadProgress = function (event: ProgressEvent) {
     if (event.lengthComputable) {
