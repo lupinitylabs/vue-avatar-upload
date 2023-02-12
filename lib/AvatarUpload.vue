@@ -262,7 +262,7 @@ if (props.langExt) {
   Object.assign(lang.value, props.langExt)
 }
 
-const fileinput = ref(null)
+const fileinput: any = ref(null)
 const canvas: any = ref(null)
 
 // Lifecycle hooks
@@ -387,7 +387,11 @@ const preventDefault = (e: Event) => {
 }
 
 const handleClick = (e: MouseEvent) => {
-  const fileInputElement: HTMLInputElement|null = fileinput.value
+  const fileInputElement = fileinput.value
+
+  if (!fileInputElement) {
+    return
+  }
 
   if (loading.value !== 1) {
     if (e.target !== fileInputElement) {
@@ -506,20 +510,17 @@ const startCrop = () => {
   }
 }
 
-const imgStartMove = (e: MouseEvent | TouchEvent) => {
+const imgStartMove = (e: MouseEvent|TouchEvent) => {
   e.preventDefault();
 
-  const isTouchEvent = e.hasOwnProperty('targetTouches')
-
-  if (isSupportTouch.value && !isTouchEvent) {
+  if (isSupportTouch.value && (!window.TouchEvent || !(e instanceof TouchEvent))) {
     return false;
   }
 
-  let et = isTouchEvent ? e.targetTouches[0] : e,
-      simd = sourceImgMouseDown.value
+  let simd = sourceImgMouseDown.value
 
-  simd.mX = et instanceof MouseEvent ? et.screenX : 0;
-  simd.mY = et instanceof MouseEvent ? et.screenY : 0;
+  simd.mX = e instanceof MouseEvent ? e.screenX : e.targetTouches[0].screenX;
+  simd.mY = e instanceof MouseEvent ? e.screenY : e.targetTouches[0].screenY;
   simd.x = scale.value.x;
   simd.y = scale.value.y;
   simd.on = true;
@@ -528,16 +529,13 @@ const imgStartMove = (e: MouseEvent | TouchEvent) => {
 const imgMove = (e: MouseEvent|TouchEvent) => {
   e.preventDefault();
 
-  const isTouchEvent = e.hasOwnProperty('targetTouches')
-
-  if (isSupportTouch.value && !isTouchEvent) {
+  if (isSupportTouch.value && (!window.TouchEvent || !(e instanceof TouchEvent))) {
     return false;
   }
 
-  let et = isTouchEvent ? e.targetTouches[0] : e,
-      sim = sourceImgMasking.value,
-      nX = et.screenX,
-      nY = et.screenY,
+  let sim = sourceImgMasking.value,
+      nX = e instanceof MouseEvent ? e.screenX : e.targetTouches[0].screenX,
+      nY = e instanceof MouseEvent ? e.screenY : e.targetTouches[0].screenY,
       dX = nX - sourceImgMouseDown.value.mX,
       dY = nY - sourceImgMouseDown.value.mY,
       rX = sourceImgMouseDown.value.x + dX,
@@ -794,11 +792,3 @@ const handleMouseWheel = (e: WheelEvent) => {
   }
 }
 </script>
-
-<!--
-<style lang='sass' src="./scss/upload.scss">
-</style> -->
-
-<style>
-@import url('./upload.css');
-</style>
