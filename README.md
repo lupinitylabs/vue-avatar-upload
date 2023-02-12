@@ -47,5 +47,6 @@ Unlike the original component, this fork does NOT support older versions of Vue.
 - [ ] Emit more lifecycle events, e.g. when the crop tool is ready. 
 - [ ] Extract the steps to separate components
 - [ ] Extract UI elements like the crop selector to separate components?
+- [ ] Fix all code style inconsistencies, especially with the semicolons
 - [ ] Add testing
 - [ ] Publish in npmjs registry

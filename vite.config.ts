@@ -9,7 +9,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'lib/main.ts'),
       name: 'AvatarUpload',
-      fileName: 'vue-component-avatar-upload'
+      fileName: 'vue-avatar-upload'
     },
     rollupOptions: {
       // externalize deps that shouldn't be bundled
