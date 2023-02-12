@@ -784,14 +784,14 @@ const Te = { class: "vue-image-crop-upload" }, Ce = { class: "vicp-wrap" }, Me =
       if (!y.value)
         return;
       let a = y.value.getContext("2d");
-      e && (E.value.on = !1), y.value.width = o.width, y.value.height = o.height, a.clearRect(0, 0, o.width, o.height), x.value === "png" ? a.fillStyle = "rgba(0,0,0,0)" : a.fillStyle = o.imgBgc, a.fillRect(0, 0, o.width, o.height), a.drawImage(L.value, t.value.x / k.value.scale, t.value.y / k.value.scale, t.value.width / k.value.scale, t.value.height / k.value.scale), B.value = y.value.toDataURL(K);
+      e && (E.value.on = !1), y.value.width = o.width, y.value.height = o.height, a.clearRect(0, 0, o.width, o.height), x.value === "png" ? a.fillStyle = "rgba(0,0,0,0)" : a.fillStyle = o.imgBgc, a.fillRect(0, 0, o.width, o.height), a.drawImage(L.value, t.value.x / k.value.scale, t.value.y / k.value.scale, t.value.width / k.value.scale, t.value.height / k.value.scale), B.value = y.value.toDataURL(K.value);
     }, we = () => {
       I("crop-success", B.value, o.field, o.ki), typeof o.url == "string" && o.url ? ye() : j();
     }, ye = () => {
       let e = new FormData();
       typeof o.params == "object" && o.params && Object.keys(o.params).forEach((i) => {
         e.append(i, o.params[i]);
-      }), e.append(o.field, Oe(B.value, K), o.field + "." + x);
+      }), e.append(o.field, Oe(B.value, K.value), o.field + "." + x.value);
       const a = function(i) {
         i.lengthComputable && (q.value = 100 * Math.round(i.loaded) / i.total);
       };
