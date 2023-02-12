@@ -42,6 +42,7 @@ Unlike the original component, this fork does NOT support older versions of Vue.
 - [ ] Re-establish build chain for CSS from either the original SASS sources or PostCSS (currently the compiled css is shipped with this component).
 - [ ] Re-build template and CSS to be responsive
 - [ ] Make component mobile-ready
+- [ ] Implement pinch zoom on mobile
 - [ ] Allow to customize styling (colors)
 - [ ] Add dark mode
 - [ ] Emit more lifecycle events, e.g. when the crop tool is ready. 

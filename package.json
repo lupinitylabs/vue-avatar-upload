@@ -3,6 +3,17 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "files": ["dist"],
+  "main": "./dist/vue-avatar-upload.umd.cjs",
+  "module": "./dist/vue-avatar-upload.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-avatar-upload.js",
+      "require": "./dist/vue-avatar-upload.umd.cjs"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
