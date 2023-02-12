@@ -14,7 +14,8 @@
     "skipLibCheck": true,
     "outDir": "dist",
     "declaration": true,
-    "noEmit": true
+    "emitDeclarationOnly": true,
+    "declarationDir": "./dist"
   },
   "include": [
     "lib/**/*.ts",

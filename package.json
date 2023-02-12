@@ -6,7 +6,6 @@
   "files": ["dist"],
   "main": "./dist/vue-avatar-upload.umd.cjs",
   "module": "./dist/vue-avatar-upload.js",
-  "types": "./dist/main.d.ts",
   "exports": {
     ".": {
       "import": "./dist/vue-avatar-upload.js",
