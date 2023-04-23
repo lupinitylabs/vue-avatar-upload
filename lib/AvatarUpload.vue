@@ -427,14 +427,14 @@ const handleChange = (e: Event | DragEvent) => {
 const checkFile = (file: File) => {
   if (file.type.indexOf('image') === -1) {
     hasError.value = true;
-    errorMsg.value = lang.error.onlyImg;
+    errorMsg.value = lang.value.error.onlyImg;
 
     return false;
   }
 
   if (file.size / 1024 > props.maxSize) {
     hasError.value = true;
-    errorMsg.value = lang.error.outOfSize + props.maxSize + 'kb';
+    errorMsg.value = lang.value.error.outOfSize + props.maxSize + 'kb';
     return false;
   }
   return true;
@@ -477,7 +477,7 @@ const startCrop = () => {
 
     if (nWidth < props.width || nHeight < props.height) {
       hasError.value = true;
-      errorMsg.value = lang.error.lowestPx + props.width + '*' + props.height;
+      errorMsg.value = lang.value.error.lowestPx + props.width + '*' + props.height;
 
       return false;
     }
@@ -772,7 +772,7 @@ const upload = () => {
         if (props.modelValue) {
           loading.value = 3;
           hasError.value = true;
-          errorMsg.value = lang.fail;
+          errorMsg.value = lang.value.fail;
 
           emit('crop-upload-fail', sts, props.field, props.ki);
         }

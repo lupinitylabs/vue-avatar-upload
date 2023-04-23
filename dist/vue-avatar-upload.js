@@ -709,7 +709,7 @@ const Te = { class: "vue-image-crop-upload" }, Ce = { class: "vicp-wrap" }, Me =
         let n = e.target instanceof HTMLInputElement ? (a = e.target) == null ? void 0 : a.files : void 0;
         e instanceof DragEvent && (n = (i = e.dataTransfer) == null ? void 0 : i.files), n && (R(), ve(n[0]) && pe(n[0]));
       }
-    }, ve = (e) => e.type.indexOf("image") === -1 ? (z.value = !0, _.value = d.error.onlyImg, !1) : e.size / 1024 > o.maxSize ? (z.value = !0, _.value = d.error.outOfSize + o.maxSize + "kb", !1) : !0, R = () => {
+    }, ve = (e) => e.type.indexOf("image") === -1 ? (z.value = !0, _.value = d.value.error.onlyImg, !1) : e.size / 1024 > o.maxSize ? (z.value = !0, _.value = d.value.error.outOfSize + o.maxSize + "kb", !1) : !0, R = () => {
       f.value = 0, z.value = !1, _.value = "", q.value = 0;
     }, pe = (e) => {
       I("src-file-set", e.name, e.type, e.size);
@@ -723,7 +723,7 @@ const Te = { class: "vue-image-crop-upload" }, Ce = { class: "vicp-wrap" }, Me =
       a.src = A.value, a.onload = () => {
         let i = a.naturalWidth, n = a.naturalHeight, s = i / n, u = e.width, c = e.height, h = 0, ie = 0;
         if (i < o.width || n < o.height)
-          return z.value = !0, _.value = d.error.lowestPx + o.width + "*" + o.height, !1;
+          return z.value = !0, _.value = d.value.error.lowestPx + o.width + "*" + o.height, !1;
         b.value > s && (c = u / s, ie = (e.height - c) / 2), b.value < s && (u = c * s, h = (e.width - u) / 2), t.value.range = 0, t.value.x = h, t.value.y = ie, t.value.width = u, t.value.height = c, t.value.minWidth = u, t.value.minHeight = c, t.value.maxWidth = i * e.scale, t.value.maxHeight = n * e.scale, t.value.naturalWidth = i, t.value.naturalHeight = n, L.value = a, M(), H(2);
       };
     }, ee = (e) => {
@@ -809,7 +809,7 @@ const Te = { class: "vue-image-crop-upload" }, Ce = { class: "vicp-wrap" }, Me =
         },
         // 上传失败
         function(i) {
-          o.modelValue && (f.value = 3, z.value = !0, _.value = d.fail, I("crop-upload-fail", i, o.field, o.ki));
+          o.modelValue && (f.value = 3, z.value = !0, _.value = d.value.fail, I("crop-upload-fail", i, o.field, o.ki));
         }
       );
     }, be = (e) => {
